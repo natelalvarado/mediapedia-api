@@ -1,22 +1,29 @@
-### User create (Signup) 
+### Users Show
+GET http://localhost:3000/users/2
+Content-Type: application/json
+
+### User Create (Signup) 
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": ,
-  "email": ,
-  "password": ,
-  "password_confirmation": , 
+  "name": "test2",
+  "email": "test2@test.com",
+  "password": "password",
+  "password_confirmation": "password" 
 }
 
-### Sessions create (login)
+### Sessions Create (Login)
 POST http://localhost:3000/sessions
 {
   "email": ,
   "password": , 
 }
 
-### Media create 
+### Media Index
+GET http://localhost:3000/media
+
+### Media Create 
   POST http://localhost:3000/media
   Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjozLCJleHAiOjE2Mjk5OTI4NjR9.G2ExsrDYn3oE0vJkvm4T6Po2GbNpH5cqTEaVPVuK_MA
   Content-Type: application/json
