@@ -17,4 +17,21 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     render json: user.as_json 
   end
+
+  def update
+    puts params
+    user = User.find(params[:id])
+  
+    user.name = params[:name] || user.name
+    user.email = params[:email] || user.email
+    user.password  = params[:password] || user.password
+    user.save
+    render json: user.as_json
+  end
+
+  def destroy
+    user = User.find_by(id: params[:id])
+    user.destroy
+    render json: {message: "User successfully Deleted."}
+  end
 end

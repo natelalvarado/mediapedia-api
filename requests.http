@@ -1,42 +1,85 @@
-### Users Show
-GET http://localhost:3000/users/2
+### Users Show (New User-Tested)
+GET http://localhost:3000/users/3
 Content-Type: application/json
 
-### User Create (Signup) 
+### Users Edit  (Update Account- Tested)
+  PATCH http://localhost:3000/users/3
+  Content-Type: application/json
+
+  {
+    "user_id": 3,
+    "name": "Test_user_Updated", 
+    "email": "test2@test.com",
+    "password": "password"
+  }
+
+### User Create (Signup-Tested)
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "test2",
-  "email": "test2@test.com",
+  "name": "test3",
+  "email": "test3@test.com",
   "password": "password",
   "password_confirmation": "password" 
 }
 
-### Sessions Create (Login)
-POST http://localhost:3000/sessions
+### User Destroy (Delete User- Tested)
+    DELETE http://localhost:3000/users/4
+
+### Sessions Create (Login-Tested)
+POST http://localhost:3000/session
+Content-Type: application/json
+
 {
-  "email": ,
-  "password": , 
+  "email": "test2@test.com",
+  "password": "password" 
 }
 
-### Media Index
+### Media Index(Media List-Tested)
 GET http://localhost:3000/media
 
-### Media Create 
-  POST http://localhost:3000/media
-  Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjozLCJleHAiOjE2Mjk5OTI4NjR9.G2ExsrDYn3oE0vJkvm4T6Po2GbNpH5cqTEaVPVuK_MA
+### Media Show (Media View-tested)
+GET http://localhost:3000/media/5
+Content-Type: application/json
+
+### Media Create(New Media-Tested)
+POST http://localhost:3000/media
+Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUxOTM1NTB9.LhE_pcdfvB5aIijXtpMR1qkBfAATwT91ltJbZJcYBos"
+Content-Type: application/json
+
+{
+  "user_id": 3,
+  "media_type": "Television",
+  "title": "Test name",
+  "creator": "Test",
+  "genre": "Test" ,
+  "year": "test" ,
+  "image": "test", 
+  "review": "test",
+  "rating": "test" ,
+  "status": "test" ,
+  "cast": "test" ,
+  "plot": "test" 
+}
+
+### Media Edit  (Media Update-Tested)
+  PATCH http://localhost:3000/media/6
   Content-Type: application/json
 
   {
-    "title": "Test name",
-    "creator": ,
-    "genre": ,
-    "year": ,
-    "image": , 
-    "review": ,
-    "rating": ,
-    "status": ,
-    "cast": ,
-    "plot": , 
+  "media_type": "Movie",
+  "title": "Test name",
+  "creator": "Test",
+  "genre": "Test" ,
+  "year": "test" ,
+  "image": "test", 
+  "review": "test",
+  "rating": "test" ,
+  "status": "test" ,
+  "cast": "test" ,
+  "plot": "test" 
   }
+
+### Media Destroy (Delete User- Tested)
+    DELETE http://localhost:3000/media/6
