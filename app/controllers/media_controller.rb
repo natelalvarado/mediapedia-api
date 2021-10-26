@@ -1,5 +1,6 @@
 class MediaController < ApplicationController
   def index
+    puts current_user
     media = Medium.all
     render json: media.as_json
   end

@@ -38,6 +38,7 @@ Content-Type: application/json
 
 ### Media Index(Media List-Tested)
 GET http://localhost:3000/media
+Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUxOTM1NTB9.LhE_pcdfvB5aIijXtpMR1qkBfAATwT91ltJbZJcYBos"
 
 ### Media Show (Media View-tested)
 GET http://localhost:3000/media/5
@@ -50,7 +51,7 @@ Content-Type: application/json
 
 {
   "user_id": 3,
-  "media_type": "Television",
+  "media_type": "test",
   "title": "Test name",
   "creator": "Test",
   "genre": "Test" ,
