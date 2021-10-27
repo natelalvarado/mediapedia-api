@@ -1,10 +1,12 @@
 ### Users Show (New User-Tested)
 GET http://localhost:3000/users/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
 Content-Type: application/json
 
 ### Users Edit  (Update Account- Tested)
-  PATCH http://localhost:3000/users/3
-  Content-Type: application/json
+PATCH http://localhost:3000/users/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
+Content-Type: application/json
 
   {
     "user_id": 3,
@@ -25,10 +27,12 @@ Content-Type: application/json
 }
 
 ### User Destroy (Delete User- Tested)
-    DELETE http://localhost:3000/users/4
+DELETE http://localhost:3000/users/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
 
 ### Sessions Create (Login-Tested)
 POST http://localhost:3000/session
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
 Content-Type: application/json
 
 {
@@ -38,15 +42,16 @@ Content-Type: application/json
 
 ### Media Index(Media List-Tested)
 GET http://localhost:3000/media
-Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUxOTM1NTB9.LhE_pcdfvB5aIijXtpMR1qkBfAATwT91ltJbZJcYBos"
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
 
 ### Media Show (Media View-tested)
-GET http://localhost:3000/media/5
+GET http://localhost:3000/media/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
 Content-Type: application/json
 
 ### Media Create(New Media-Tested)
 POST http://localhost:3000/media
-Authorization: "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUxOTM1NTB9.LhE_pcdfvB5aIijXtpMR1qkBfAATwT91ltJbZJcYBos"
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODU5NzV9.ckTE2E052I38ES8RQC0DNLRMfyQ_PeeYG-aKqU8cZRo
 Content-Type: application/json
 
 {
@@ -65,10 +70,11 @@ Content-Type: application/json
 }
 
 ### Media Edit  (Media Update-Tested)
-  PATCH http://localhost:3000/media/6
-  Content-Type: application/json
+PATCH http://localhost:3000/media/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODU5NzV9.ckTE2E052I38ES8RQC0DNLRMfyQ_PeeYG-aKqU8cZRo
+Content-Type: application/json
 
-  {
+{
   "media_type": "Movie",
   "title": "Test name",
   "creator": "Test",
@@ -80,7 +86,8 @@ Content-Type: application/json
   "status": "test" ,
   "cast": "test" ,
   "plot": "test" 
-  }
+}
 
 ### Media Destroy (Delete User- Tested)
-    DELETE http://localhost:3000/media/6
+DELETE http://localhost:3000/media/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODU5NzV9.ckTE2E052I38ES8RQC0DNLRMfyQ_PeeYG-aKqU8cZRo

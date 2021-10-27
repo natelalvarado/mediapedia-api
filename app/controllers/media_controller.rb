@@ -1,13 +1,17 @@
 class MediaController < ApplicationController
   def index
-    puts current_user
-    media = Medium.all
+    media = Medium.where(:user_id => current_user.id)
     render json: media.as_json
   end
 
   def show
-    media = Medium.find_by(id: params[:id])
-    render json: media.as_json
+    media = Medium.find_by(id: params[:id], :user_id => current_user.id)
+
+    if media.nil? 
+      render json: { errors: "Unauthorized" }, status: :unauthorized
+    else
+      render json: media.as_json
+    end
   end
 
   def create
@@ -34,7 +38,7 @@ class MediaController < ApplicationController
   end
 
   def update 
-    media = Medium.find(params[:id])
+    media = Medium.find(params[:id], :user_id => current_user.id)
     media.media_type = params[:media_type] || media.media_type
     media.title = params[:title] || media.title
     media.creator  = params[:creator] || media.creator
@@ -49,11 +53,17 @@ class MediaController < ApplicationController
     media.plot  = params[:plot] || media.plot
     media.save
     render json: media.as_json
+
+    if media.save
+      render json: { message: "Media Successfully Updated" }, status: :created
+    else
+      render json: { errors: user.errors.full_messages }, status: :bad_request
+    end
   end
 
   def destroy
-    media = Medium.find_by(id: params[:id])
+    media = Medium.find_by(id: params[:id], :user_id => current_user.id)
     media.destroy
-    render json: {message: "Media successfully Deleted."}
+    render json: {message: "Movie Successfully Destroyed"}
   end
 end
