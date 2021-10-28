@@ -1,22 +1,17 @@
 class MediaController < ApplicationController
   def index
-    media = Medium.where(:user_id => current_user.id)
-    render json: media.as_json
+    media = current_user.media
+    render json: media
   end
 
   def show
-    media = Medium.find_by(id: params[:id], :user_id => current_user.id)
-
-    if media.nil? 
-      render json: { errors: "Unauthorized" }, status: :unauthorized
-    else
-      render json: media.as_json
-    end
+    medium = current_user.media.find(params[:id])
+    render json: medium
   end
 
   def create
-    media = Medium.new(
-      user_id: params[:user_id],
+    medium = Medium.new(
+      user_id: current_user.id,
       media_type: params[:media_type],
       title: params[:title],
       creator: params[:creator],
@@ -30,40 +25,39 @@ class MediaController < ApplicationController
       plot: params[:plot],
     )
     
-    if media.save
-      render json: { message: "Media created successfully" }, status: :created
+    if medium.save
+      render json: medium
     else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
+      render json: { errors: medium.errors.full_messages }, status: :bad_request
     end
   end
 
   def update 
-    media = Medium.find(params[:id], :user_id => current_user.id)
-    media.media_type = params[:media_type] || media.media_type
-    media.title = params[:title] || media.title
-    media.creator  = params[:creator] || media.creator
-    media.genre  = params[:genre] || media.genre
-    media.year  = params[:year] || media.year
-    media.creator  = params[:creator] || media.creator
-    media.image  = params[:image] || media.image
-    media.review  = params[:review] || media.review
-    media.rating  = params[:rating] || media.rating
-    media.status  = params[:status] || media.status
-    media.cast  = params[:cast] || media.cast
-    media.plot  = params[:plot] || media.plot
-    media.save
-    render json: media.as_json
+    medium = current_user.media.find(params[:id])
+    medium.media_type = params[:media_type] || media.media_type
+    medium.title = params[:title] || medium.title
+    medium.creator  = params[:creator] || medium.creator
+    medium.genre  = params[:genre] || medium.genre
+    medium.year  = params[:year] || medium.year
+    medium.creator  = params[:creator] || medium.creator
+    medium.image  = params[:image] || medium.image
+    medium.review  = params[:review] || medium.review
+    medium.rating  = params[:rating] || medium.rating
+    medium.status  = params[:status] || medium.status
+    medium.cast  = params[:cast] || medium.cast
+    medium.plot  = params[:plot] || medium.plot
+    medium.save
 
-    if media.save
-      render json: { message: "Media Successfully Updated" }, status: :created
+    if medium.save
+      render json: medium
     else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
+      render json: { errors: medium.errors.full_messages }, status: :bad_request
     end
   end
 
   def destroy
-    media = Medium.find_by(id: params[:id], :user_id => current_user.id)
-    media.destroy
+    medium = current_user.media.find(params[:id])
+    medium.destroy
     render json: {message: "Movie Successfully Destroyed"}
   end
 end

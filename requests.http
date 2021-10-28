@@ -1,61 +1,60 @@
-### Users Show (New User-Tested)
-GET http://localhost:3000/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU0NjE3MjJ9.QLk6HG6OfxV9DYoCX-mHPVuqpIvZJ_ScULSx7gwbw-w
+
+### Users Show (Tested)
+GET http://localhost:3000/users/me
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
-### Users Edit  (Update Account- Tested)
-PATCH http://localhost:3000/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
+### Users Update (Tested)
+PATCH http://localhost:3000/users/me
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
   {
-    "user_id": 3,
-    "name": "Test_user_Updated", 
+    "name": "Test_user_Change", 
     "email": "test2@test.com",
     "password": "password"
   }
 
-### User Create (Signup-Tested)
+### User Create (Tested)
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "test3",
-  "email": "test3@test.com",
+  "name": "test5",
+  "email": "test5@test.com",
   "password": "password",
   "password_confirmation": "password" 
 }
 
-### User Destroy (Delete User- Tested)
-DELETE http://localhost:3000/users/4
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
+### User Destroy (Tested)
+DELETE http://localhost:3000/users/me
+Authorization: Bearer {{jwt}}
 
-### Sessions Create (Login-Tested)
-POST http://localhost:3000/session
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
+### Sessions Create (Tested)
+POST http://localhost:3000/sessions
 Content-Type: application/json
 
 {
-  "email": "test2@test.com",
-  "password": "password" 
+  "email": "natelalvarado@gmail.com",
+  "password": "temppassword" 
 }
 
-### Media Index(Media List-Tested)
+### Media Index(Tested)
 GET http://localhost:3000/media
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
+Authorization: Bearer {{jwt}}
 
-### Media Show (Media View-tested)
-GET http://localhost:3000/media/7
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODcwNzN9.r6F31dSaPnFk1FvOxc_CRoTrASbE3zk79vpnlLv_VnQ
+### Media Show (Tested)
+GET http://localhost:3000/media/1
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
-### Media Create(New Media-Tested)
+### Media Create (Tested)
 POST http://localhost:3000/media
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODU5NzV9.ckTE2E052I38ES8RQC0DNLRMfyQ_PeeYG-aKqU8cZRo
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "user_id": 3,
   "media_type": "test",
   "title": "Test name",
   "creator": "Test",
@@ -69,9 +68,9 @@ Content-Type: application/json
   "plot": "test" 
 }
 
-### Media Edit  (Media Update-Tested)
+### Media Update (Tested)
 PATCH http://localhost:3000/media/6
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODU5NzV9.ckTE2E052I38ES8RQC0DNLRMfyQ_PeeYG-aKqU8cZRo
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
@@ -88,6 +87,6 @@ Content-Type: application/json
   "plot": "test" 
 }
 
-### Media Destroy (Delete User- Tested)
-DELETE http://localhost:3000/media/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2MzUzODU5NzV9.ckTE2E052I38ES8RQC0DNLRMfyQ_PeeYG-aKqU8cZRo
+### Media Destroy (Tested)
+DELETE http://localhost:3000/media/6
+Authorization: Bearer {{jwt}}

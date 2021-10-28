@@ -14,18 +14,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id], :user_id => current_user.id)
-
-    if user.nil? 
-      render json: { errors: "Unauthorized" }, status: :unauthorized
-    else
-      render json: media.as_json
-    end  
+    render json: current_user
   end
 
   def update
     puts params
-    user = User.find(params[:id], :user_id => current_user.id)
+    user = current_user
     
     user.name = params[:name] || user.name
     user.email = params[:email] || user.email
@@ -40,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(id: params[:id], :user_id => current_user.id)
+    user = current_user
     user.destroy
     render json: {message: "User successfully Deleted."}
   end

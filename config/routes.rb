@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   # User Routes
-  get "users/:id" => "users#show"
+  get "users/me" => "users#show"
   post "/users" => "users#create"
-  patch "users/:id" => "users#update"
-  delete "users/:id" => "users#destroy"
+  patch "users/me" => "users#update"
+  delete "users/me" => "users#destroy"
   
   #Sessions Route
-  post "/session" => "sessions#create"
+  post "/sessions" => "sessions#create"
   
   # Media Routes
   get "/media" => "media#index"
