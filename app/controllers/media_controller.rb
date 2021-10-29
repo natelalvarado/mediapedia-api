@@ -1,4 +1,7 @@
 class MediaController < ApplicationController
+
+  before_action :authenticate_user
+
   def index
     media = current_user.media
     render json: media
@@ -12,7 +15,7 @@ class MediaController < ApplicationController
   def create
     medium = Medium.new(
       user_id: current_user.id,
-      media_type: params[:media_type],
+      category: params[:category],
       title: params[:title],
       creator: params[:creator],
       genre: params[:genre],
@@ -34,7 +37,7 @@ class MediaController < ApplicationController
 
   def update 
     medium = current_user.media.find(params[:id])
-    medium.media_type = params[:media_type] || media.media_type
+    medium.category = params[:category] || media.category
     medium.title = params[:title] || medium.title
     medium.creator  = params[:creator] || medium.creator
     medium.genre  = params[:genre] || medium.genre

@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2MzU0NjE3MjJ9.QLk6HG6OfxV9DYoCX-mHPVuqpIvZJ_ScULSx7gwbw-w
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2MzU2MTYxMjd9.Ytpe5QdE8aVn0QAzMRNlMtoZ-X03OPUmTAmj1rwBYT8
 
 ### Users Show (Tested)
 GET http://localhost:3000/users/me
@@ -11,8 +11,8 @@ Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
   {
-    "name": "Test_user_Change", 
-    "email": "test2@test.com",
+    "name": "Test_user_Test", 
+    "email": "test_user@test.com",
     "password": "password"
   }
 
@@ -21,8 +21,8 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "name": "test5",
-  "email": "test5@test.com",
+  "name": "test_user3",
+  "email": "test_user3@test.com",
   "password": "password",
   "password_confirmation": "password" 
 }
@@ -36,8 +36,8 @@ POST http://localhost:3000/sessions
 Content-Type: application/json
 
 {
-  "email": "natelalvarado@gmail.com",
-  "password": "temppassword" 
+  "email": "test_user@test.com",
+  "password": "password" 
 }
 
 ### Media Index(Tested)
@@ -55,7 +55,7 @@ Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "media_type": "test",
+  "category": "Movie",
   "title": "Test name",
   "creator": "Test",
   "genre": "Test" ,
@@ -69,12 +69,12 @@ Content-Type: application/json
 }
 
 ### Media Update (Tested)
-PATCH http://localhost:3000/media/6
+PATCH http://localhost:3000/media/11
 Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "media_type": "Movie",
+  "category": "Television",
   "title": "Test name",
   "creator": "Test",
   "genre": "Test" ,
@@ -88,5 +88,5 @@ Content-Type: application/json
 }
 
 ### Media Destroy (Tested)
-DELETE http://localhost:3000/media/6
+DELETE http://localhost:3000/media/11
 Authorization: Bearer {{jwt}}

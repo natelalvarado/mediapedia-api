@@ -1,3 +1,3 @@
 class MediumSerializer < ActiveModel::Serializer
-  attributes :id  :media :title :creator :genre :year :image :review :rating :status :cast :lot
+  attributes :id, :category, :title, :creator, :genre, :year, :image, :review, :rating, :status, :cast, :plot
 end
