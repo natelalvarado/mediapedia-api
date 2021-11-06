@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     
     user.name = params[:name] || user.name
     user.email = params[:email] || user.email
-    user.password  = params[:password] || user.password
+    user.password  = params[:password] || user.password_digest
     
     if user.save
       render json: user

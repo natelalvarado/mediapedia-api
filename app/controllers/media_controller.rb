@@ -61,6 +61,6 @@ class MediaController < ApplicationController
   def destroy
     medium = current_user.media.find(params[:id])
     medium.destroy
-    render json: {message: "Movie Successfully Destroyed"}
+    render json: {message: "Entry Deleted"}
   end
 end
