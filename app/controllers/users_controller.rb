@@ -23,11 +23,14 @@ class UsersController < ApplicationController
   def update
     puts params
     user = current_user
-    
     user.name = params[:name] || user.name
     user.email = params[:email] || user.email
-    user.password  = params[:password] || user.password_digest
-    
+  
+    if params[:password] && params[:password_confirmation]
+      user.password = params[:password]
+      user.password_confirmation = params[:password_confirmation]
+    end
+
     if user.save
       render json: user
     else
